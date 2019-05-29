@@ -5,6 +5,7 @@ from flask import Flask
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw 
+import logging
 import io
 
 app = Flask(__name__)
@@ -60,4 +61,4 @@ def stirner_quote(data, context):
         token = f.read()
     graph = facebook.GraphAPI(access_token=token)
     graph.put_photo(image=saved.read())
-    return "It worked!"
+    logging.info('it posted')
