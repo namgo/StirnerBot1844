@@ -28,8 +28,7 @@ def split_after_nth_spaces(_st, n):
     return r
 
 
-@app.route('/send')
-def send():
+def stirner_quote(data, context):
     # Get raw text as string.
     with open('eaho.txt') as f:
         text = f.read()
