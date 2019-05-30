@@ -6,10 +6,8 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw 
 import logging
+import json
 import io
-
-app = Flask(__name__)
-
 
 # I'm writing this late at night
 # I'm assuming there's an easier
@@ -31,13 +29,17 @@ def split_after_nth_spaces(_st, n):
 
 def stirner_quote(data, context):
     # Get raw text as string.
+    logging.info('loading eaho')
     with open('eaho.txt') as f:
         text = f.read()
 
-    # Build the model.
-    text_model = markovify.Text(text)
+    # load the model
+    with open('model.json', 'r') as f:
+        text_model = markovify.Text.from_json(json.load(f))
+    logging.info('built text model')
 
     sentence = text_model.make_sentence()
+    print(sentence)
 
     base = Image.open('stirner.png').convert('RGBA')
 
