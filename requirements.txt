@@ -8,7 +8,7 @@ itsdangerous==1.1.0
 Jinja2==2.10.1
 markovify==0.7.1
 MarkupSafe==1.1.1
-Pillow==5.4.1
+Pillow==6.2.0
 requests==2.21.0
 Unidecode==1.0.23
 urllib3==1.25.3
